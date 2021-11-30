@@ -22,6 +22,7 @@ tasks.register("generateAntora") {
 	group = "Documentation"
 	description = "Generates the antora.yml for dynamic properties"
 	doLast {
+	        options.addBooleanOption('-no-module-directories', true)
 		def docsTag = snapshotBuild ? 'current' : project.version
 		def ghTag = snapshotBuild ? 'main' : project.version
 		def ghUrl = "https://github.com/spring-projects/spring-security/tree/$ghTag"
